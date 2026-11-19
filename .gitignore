@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.pytest_cache/
+reports/_run/
+reports/audit.jsonl
+targets/_state_files/
+dataset/processed/
+.DS_Store
+.ipynb_checkpoints/
+
+# private presentation notes — keep locally, do NOT publish to GitHub
+docs/REPORT_NOTES.md

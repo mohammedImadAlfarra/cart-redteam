@@ -1,0 +1,48 @@
+{
+  "experience_memory": {
+    "what": "The agent records, per attack type, how often an exploit attempt was proven, and tries higher hit-rate attacks first on later targets.",
+    "table": {
+      "idor": {
+        "tried": 2,
+        "worked": 2,
+        "hit_rate": 1.0
+      },
+      "info_disclosure": {
+        "tried": 2,
+        "worked": 2,
+        "hit_rate": 1.0
+      },
+      "missing_security_headers": {
+        "tried": 6,
+        "worked": 5,
+        "hit_rate": 0.83
+      },
+      "open_redirect": {
+        "tried": 2,
+        "worked": 2,
+        "hit_rate": 1.0
+      },
+      "path_traversal": {
+        "tried": 6,
+        "worked": 2,
+        "hit_rate": 0.33
+      },
+      "sqli": {
+        "tried": 20,
+        "worked": 4,
+        "hit_rate": 0.2
+      },
+      "xss_reflected": {
+        "tried": 14,
+        "worked": 2,
+        "hit_rate": 0.14
+      }
+    }
+  },
+  "agent_payload_crosscheck": {
+    "what": "Fraction of the agent's own request values that the real-dataset classifier independently labels as malicious.",
+    "agent_values_checked": 160,
+    "flagged_malicious": 96,
+    "flagged_rate": 0.6
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "dataset": "HTTP Params Dataset (Morzeux) - benign values from CSIC 2010; MIT licence",
+  "dataset_url": "https://github.com/Morzeux/HttpParamsDataset",
+  "is_real_dataset": true,
+  "total_rows": 31067,
+  "model": "RandomForestClassifier(n_estimators=200, max_depth=16)",
+  "features": [
+    "length",
+    "n_digits",
+    "n_letters",
+    "n_specials",
+    "special_ratio",
+    "n_spaces",
+    "n_single_quote",
+    "n_double_quote",
+    "n_angle",
+    "n_equals",
+    "n_percent",
+    "n_semicolon",
+    "sql_kw",
+    "xss_kw",
+    "cmd_kw",
+    "traversal",
+    "entropy",
+    "non_ascii"
+  ],
+  "train_size": 21746,
+  "test_size": 9321,
+  "accuracy": 0.9975,
+  "precision": 0.9983,
+  "recall": 0.9952,
+  "f1": 0.9967,
+  "confusion_matrix": {
+    "tn": 5786,
+    "fp": 6,
+    "fn": 17,
+    "tp": 3512
+  },
+  "learning_curve": [
+    {
+      "train_size": 2174,
+      "accuracy": 0.9959
+    },
+    {
+      "train_size": 5436,
+      "accuracy": 0.9973
+    },
+    {
+      "train_size": 10873,
+      "accuracy": 0.9974
+    },
+    {
+      "train_size": 16309,
+      "accuracy": 0.9976
+    },
+    {
+      "train_size": 21746,
+      "accuracy": 0.9976
+    }
+  ],
+  "cross_validation": {
+    "accuracy": {
+      "mean": 0.9983,
+      "std": 0.0002
+    },
+    "precision": {
+      "mean": 0.9991,
+      "std": 0.0
+    },
+    "recall": {
+      "mean": 0.9964,
+      "std": 0.0006
+    },
+    "f1": {
+      "mean": 0.9978,
+      "std": 0.0003
+    }
+  },
+  "generalization": [
+    {
+      "attack_type": "sqli",
+      "held_out_malicious": 10852,
+      "caught": 10285,
+      "recall": 0.9478
+    },
+    {
+      "attack_type": "xss",
+      "held_out_malicious": 532,
+      "caught": 528,
+      "recall": 0.9925
+    },
+    {
+      "attack_type": "cmdi",
+      "held_out_malicious": 89,
+      "caught": 69,
+      "recall": 0.7753
+    },
+    {
+      "attack_type": "path-traversal",
+      "held_out_malicious": 290,
+      "caught": 141,
+      "recall": 0.4862
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# CART — one-command runner (OPTIONAL).
+#
+#   docker compose up                         # run the full scan (no GPU needed)
+#   docker compose run --rm cart python run.py --ml-only   # (optional) train the ML model
+#   docker compose --profile ui up dashboard  # (optional) interactive dashboard on :8501
+#
+# Reports appear in ./reports on your machine. Deleting this file and the
+# Dockerfile does not affect `python run.py`.
+
+services:
+  # the main service: starts the 6 vulnerable targets and runs the scan
+  cart:
+    build: .
+    image: cart-redteam:latest
+    container_name: cart-scan
+    command: ["python", "run.py"]
+    volumes:
+      - ./reports:/app/reports                        # see report.html + report.json on host
+      - ./models:/app/models                          # keep trained model / experience (optional)
+
+  # optional interactive dashboard — start with: docker compose --profile ui up dashboard
+  dashboard:
+    build: .
+    image: cart-redteam:latest
+    container_name: cart-dashboard
+    profiles: ["ui"]
+    command: ["streamlit", "run", "dashboard/app.py",
+              "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./reports:/app/reports
+      - ./models:/app/models

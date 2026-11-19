@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.git/
+reports/_run/
+reports/audit.jsonl
+targets/_state_files/
+docs/screenshots/
+*.zip
+.DS_Store
+.ipynb_checkpoints/

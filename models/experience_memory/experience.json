@@ -1,0 +1,27 @@
+{
+  "success": {
+    "missing_security_headers": 5,
+    "sqli": 4,
+    "xss_reflected": 2,
+    "info_disclosure": 2,
+    "path_traversal": 2,
+    "idor": 2,
+    "open_redirect": 2
+  },
+  "attempts": {
+    "missing_security_headers": 6,
+    "sqli": 20,
+    "xss_reflected": 14,
+    "path_traversal": 6,
+    "info_disclosure": 2,
+    "idor": 2,
+    "open_redirect": 2
+  },
+  "recipes": {
+    "sqli": "' OR 1=1 --",
+    "xss_reflected": "<cart-canary-bf12a530>",
+    "path_traversal": "../private/canary.txt",
+    "idor": "other users' ids",
+    "open_redirect": "https://cart-canary.invalid/proof"
+  }
+}

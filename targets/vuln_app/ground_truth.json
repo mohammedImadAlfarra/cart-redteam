@@ -1,0 +1,14 @@
+{
+  "_comment": "The real list of vulnerabilities planted in VulnShop. Used ONLY for evaluation (recall / precision), never by the scanner.",
+  "vulnerabilities": [
+    {"id": "V1", "type": "sqli_auth_bypass", "path": "/login", "fix": "sqli_login"},
+    {"id": "V2", "type": "sqli", "path": "/search", "fix": "sqli_search"},
+    {"id": "V3", "type": "xss_reflected", "path": "/search", "fix": "xss_search"},
+    {"id": "V4", "type": "path_traversal", "path": "/download", "fix": "path_traversal"},
+    {"id": "V5", "type": "idor", "path": "/api/users/<id>", "fix": "idor"},
+    {"id": "V6", "type": "open_redirect", "path": "/redirect", "fix": "open_redirect"},
+    {"id": "V7", "type": "info_disclosure", "path": "/debug", "fix": "info_disclosure"},
+    {"id": "V8", "type": "missing_security_headers", "path": "/", "fix": "security_headers"}
+  ],
+  "decoys": ["/greet", "/docs", "/products"]
+}

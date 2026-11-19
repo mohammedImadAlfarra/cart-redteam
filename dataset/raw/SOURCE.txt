@@ -1,0 +1,30 @@
+HTTP Params Dataset (HttpParamsDataset)
+=======================================
+File        : http_params_dataset.csv  (31,067 rows)
+Source URL  : https://github.com/Morzeux/HttpParamsDataset
+Raw CSV     : https://raw.githubusercontent.com/Morzeux/HttpParamsDataset/master/payload_full.csv
+License     : MIT
+Downloaded  : 2026-11-17
+
+A labelled dataset of HTTP parameter values, each marked normal ("norm") or
+anomalous ("anom"), with the attack class in attack_type.
+
+How it was built (per the author):
+  * benign values  : taken from the HTTP DATASET CSIC 2010 (CSIC, Spain)
+  * sqli samples   : generated with sqlmap
+  * xss samples    : generated with XSSYA
+  * cmdi / path    : generated with Vega Scanner and FuzzDB
+
+Columns:
+  payload      the HTTP parameter value (string)
+  length       character length of the payload
+  attack_type  norm | sqli | xss | cmdi | path-traversal
+  label        norm (benign) | anom (malicious)
+
+Label counts : norm 19,304 | anom 11,763
+Attack types : norm 19,304 | sqli 10,852 | xss 532 | cmdi 89 | path-traversal 290
+
+Citation (repository):
+  Morzeux, "HttpParamsDataset", GitHub. https://github.com/Morzeux/HttpParamsDataset
+  Benign payloads derived from: Gimenez et al., "HTTP DATASET CSIC 2010",
+  Information Security Institute of CSIC (Spanish Research National Council).

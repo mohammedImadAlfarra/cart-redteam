@@ -1,0 +1,25 @@
+# CART rules of engagement (scope & safety policy).
+# The scanner REFUSES any request that breaks these rules.
+
+[scope]
+allowed_hosts = ["127.0.0.1", "localhost"]
+allowed_ports = [5000, 5001, 5002, 5003, 5004, 5005, 8000, 3000]
+allowed_methods = ["GET", "POST", "HEAD"]      # no PUT/DELETE/PATCH: non-destructive only
+max_requests_per_second = 20
+max_requests_total = 2000
+follow_redirects = false                         # never leave the target via redirects
+
+[safety]
+# Payloads containing any of these (case-insensitive) are blocked before sending.
+forbidden_payload_patterns = [
+  "drop ", "delete ", "update ", "insert ", "truncate", "alter ", "shutdown",
+  "rm -", "mkfs", ";--exec", "xp_cmdshell", "<script", "onerror=", "/etc/shadow",
+  "sleep(", "benchmark(", "load_file", "into outfile"
+]
+canary_prefix = "cart-canary"
+
+[auth]
+# Low-privilege test account given to the red team by the target owner (VulnShop).
+login_path = "/login"
+username = "alice"
+password = "alice123"
